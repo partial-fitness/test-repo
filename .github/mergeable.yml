@@ -3,3 +3,4 @@ mergeable:
         min: 1
     required:
         reviewers: [mannysz, erickmendonca]
+    exclude: [title, description, labels, milestone]
