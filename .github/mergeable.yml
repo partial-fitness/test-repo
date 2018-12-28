@@ -1,0 +1,5 @@
+mergeable:
+    approvals:
+        min: 1
+    required:
+        reviewers: [mannysz, erickmendonca]
