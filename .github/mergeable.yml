@@ -4,12 +4,7 @@ mergeable:
             min: 1
         required:
             reviewers: [mannysz, erickmendonca]
-        description:
-            no_empty:
-                enabled: false
-            must_exclude:
-                regex: 'DO NOT MERGE'
-                message: 'This pull request is marked to not be merged in.'
+        exclude: 'description, title'
         label:
             must_exclude:
                 regex: `^\\(do not merge\\)|^\\(wip\\)`
