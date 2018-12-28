@@ -7,4 +7,8 @@ mergeable:
     approvals: 2
 
     # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
-    exclude: 'description'
+    exclude: 'title'
+
+    description:
+        no_empty:
+            enabled: false
