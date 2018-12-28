@@ -1,10 +1,10 @@
+##############################
+# Example Simple Settings
+#############################
 mergeable:
-    pull_requests:
-        approvals:
-            min: 1
-        required:
-            reviewers: [mannysz, erickmendonca]
-        exclude: 'description, title'
-        label:
-            must_exclude:
-                regex: `^\\(do not merge\\)|^\\(wip\\)`
+  pull_requests:
+    # Minimum of 5 approvals is needed.
+    approvals: 2
+
+    # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
+    exclude: 'description'
