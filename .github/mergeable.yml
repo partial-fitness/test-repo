@@ -1,0 +1,14 @@
+##############################
+# Example Simple Settings
+#############################
+mergeable:
+  pull_requests:
+    # Minimum of 5 approvals is needed.
+    approvals: 2
+
+    # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
+    exclude: 'title'
+
+    description:
+        no_empty:
+            enabled: false
