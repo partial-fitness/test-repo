@@ -6,7 +6,7 @@ mergeable:
     approvals:
         min: 1
         required:
-            reviewers: [@partial-fitness/engineers]
+            reviewers: ["@partial-fitness/engineers"]
             message: "Cannot merge before having approvals for unit test changes."
 
     # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
