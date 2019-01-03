@@ -4,7 +4,7 @@
 mergeable:
   pull_requests:
     approvals: 1
-    reviewers: [erickmendonca, williamgrah]
+    reviewers: [erickmendonca]
 
     # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
     exclude: 'title'
