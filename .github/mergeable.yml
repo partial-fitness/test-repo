@@ -5,6 +5,7 @@ mergeable:
   pull_requests:
     approvals:
         min: 1
+    required:
         reviewers: [erickmendonca]
         message: "Cannot merge before having approvals for unit test changes."
 
