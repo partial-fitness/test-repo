@@ -4,7 +4,9 @@
 mergeable:
   pull_requests:
     approvals: 1
-    reviewers: [erickmendonca]
+        min: 1
+        reviewers: [erickmendonca]
+        message: "Cannot merge before having approvals for unit test changes."
 
     # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
     exclude: 'title'
