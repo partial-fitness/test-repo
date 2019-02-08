@@ -4,11 +4,8 @@ mergeable:
   - when: pull_request.open, pull_request_review.*
     validate:
       - do: approvals
-        and:
-          - min:
-              count: 1
-          - or:
-            - required:
-                reviewers: ['volksport']
-            - required:
-                reviewers: ['bastovall']
+        or:
+          - required:
+              reviewers: ['volksport']
+          - required:
+              reviewers: ['bastovall']
