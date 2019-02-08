@@ -6,26 +6,26 @@ mergeable:
       - do: approvals
         and:
           - min:
-            message: "Min failed"
+            message: 'Min failed'
             count: 1
           - or:
             - required:
               reviewers:
                 - volksport
-              message: "Rob didn't approve"
+              message: 'Rob didn't approve'
             - required:
               reviewers:
                 - bastovall
-              message: "Bryce didn't approve"
+              message: 'Bryce didn't approve'
     pass:
       - do: checks
         status: 'success'
         payload:
           title: 'Mergeable run has been completed!'
-          summary: 'All checks have passed!'
+          summary: `{{validationSuites}}`
     fail:
       - do: checks
         status: 'failure'
         payload:
           title: 'Mergeable run has been completed!'
-          summary: 'You need at least one tech lead to review this PR.'
+          summary: `{{validationSuites}}`
