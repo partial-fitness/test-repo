@@ -4,20 +4,109 @@ mergeable:
   - when: 'pull_request_review.*'
     validate:
       - do: approvals
-        min:
-          count: 1
-        required:
-          reviewers:
-            - volksport
+        or:
+          required:
+            reviewers:
+              - adambom
+          required:
+            reviewers:
+              - atayarani
+          required:
+            reviewers:
+              - bfmonteiro
+          required:
+            reviewers:
+              - bhardin
+          required:
+            reviewers:
+              - delimatorres
+          required:
+            reviewers:
+              - erickmendonca
+          required:
+            reviewers:
+              - estherrasche
+          required:
+            reviewers:
+              - gabrielmarcondes
+          required:
+            reviewers:
+              - gmorada
+          required:
+            reviewers:
+              - gregthewhite
+          required:
+            reviewers:
+              - bastovall
+          required:
+            reviewers:
+              - galonsky
+          required:
+            reviewers:
+              - jairvercosa
+          required:
+            reviewers:
+              - japjit
+          required:
+            reviewers:
+              - jerrytalton
+          required:
+            reviewers:
+              - lemongod
+          required:
+            reviewers:
+              - luismmontielg
+          required:
+            reviewers:
+              - lvieirajr
+          required:
+            reviewers:
+              - mannysz
+          required:
+            reviewers:
+              - Preeti06
+          required:
+            reviewers:
+              - rbusquet
+          required:
+            reviewers:
+              - revictus
+          required:
+            reviewers:
+              - roddds
+          required:
+            reviewers:
+              - stephenwangcarta
+          required:
+            reviewers:
+              - saechtner
+          required:
+            reviewers:
+              - victorlandeira
+          required:
+            reviewers:
+              - volksport
+          required:
+            reviewers:
+              - williamscales
+          required:
+            reviewers:
+              - zuzelvp
     pass:
-      - do: checks
+      - do: checks,
         status: 'success'
         payload:
           title: 'Mergeable run has been completed!'
           summary: 'All checks have passed!'
     fail:
-      - do: checks
+      - do: checks,
         status: 'failure'
         payload:
           title: 'Mergeable run has been completed!'
           summary: 'You need at least one tech lead to review this PR.'
+    error:
+      - do: checks,
+        status: 'failure'
+        payload:
+          title: 'Mergeable run failed!'
+          summary: 'An unexpected error occurred running mergeable checks.'
