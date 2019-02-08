@@ -1,15 +1,16 @@
 ---
 version: 2
 mergeable:
-  - when: 'pull_request.opened, pull_request_review.*'
+  - when: 'pull_request_review.*'
     validate:
       - do: approvals
         min:
-          - count: 1
-        required:
-          or:
+          count: 1
+        or:
+          - required:
             reviewers:
               - volksport
+          - required:
             reviewers:
               - bastovall
     pass:
