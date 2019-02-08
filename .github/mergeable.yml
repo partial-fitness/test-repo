@@ -22,7 +22,7 @@ mergeable:
         status: 'success'
         payload:
           title: 'Mergeable run has been completed!'
-          summary: `{{validationSuites}}`
+          summary: `{{#each validationSuites}}`
     fail:
       - do: checks
         status: 'failure'
