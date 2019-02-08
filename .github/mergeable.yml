@@ -1,19 +1,22 @@
 ---
 version: 2
 mergeable:
-  - when: 'pull_request.open, pull_request_review.*'
+  - when: pull_request.open, pull_request_review.*
     validate:
       - do: approvals
         and:
           - min:
+            message: "Min failed"
             count: 1
           - or:
             - required:
               reviewers:
                 - volksport
+              message: "Rob didn't approve"
             - required:
               reviewers:
                 - bastovall
+              message: "Bryce didn't approve"
     pass:
       - do: checks
         status: 'success'
