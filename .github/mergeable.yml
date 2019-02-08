@@ -1,17 +1,54 @@
-##############################
-# Example Simple Settings
-#############################
+---
+version: 2
 mergeable:
-  pull_requests:
-    approvals:
-        min: 1
+  - when: 'pull_request_review.*'
+    validate:
+      - do: approvals
+        min: 2
         required:
-            reviewers: ["@partial-fitness/engineers"]
-            message: "Cannot merge before having approvals for unit test changes."
-
-    # exclude any of the mergeable validation above. A comma separated list. For example, the following will exclude validations for approvals and label.
-    exclude: 'title'
-
-    description:
-        no_empty:
-            enabled: false
+          reviewers:
+            - adambom
+            - atayarani
+            - bfmonteiro
+            - bhardin
+            - delimatorres
+            - erickmendonca
+            - estherrasche
+            - gabrielmarcondes
+            - gmorada
+            - gregthewhite
+            - jairvercosa
+            - japjit
+            - jerrytalton
+            - lemongod
+            - luismmontielg
+            - lvieirajr
+            - mannysz
+            - Preeti06
+            - rbusquet
+            - revictus
+            - roddds
+            - stephenwangcarta
+            - saechtner
+            - victorlandeira
+            - volksport
+            - williamscales
+            - zuzelvp
+    pass:
+      - do: checks,
+        status: 'success'
+        payload:
+          title: 'Mergeable run have been completed!'
+          summary: 'All checks have been passed!'
+    fail:
+      - do: checks,
+        status: 'failure'
+        payload:
+          title: 'Mergeable run has been completed!'
+          summary: 'You need at least one tech lead to review this PR.'
+    error:
+      - do: checks,
+        status: 'failure'
+        payload:
+          title: 'Mergeable run failed!'
+          summary: 'An unexpected error occurred running mergeable checks.'
