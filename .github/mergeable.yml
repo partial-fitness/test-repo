@@ -4,12 +4,11 @@ mergeable:
   - when: pull_request.open, pull_request_review.*
     validate:
       - do: approvals
-        or:
-          - required:
-            reviewers:
-              - volksport
-            message: 'Rob didnt approve'
-          - required:
-            reviewers:
-              - bastovall
-            message: 'Bryce didnt approve'
+        and:
+          - min:
+              count: 1
+          - or:
+            - required:
+                reviewers: ['volksport']
+            - required:
+                reviewers: ['bastovall']
