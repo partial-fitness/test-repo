@@ -12,11 +12,11 @@ mergeable:
             - required:
               reviewers:
                 - volksport
-              message: 'Rob didn't approve'
+              message: 'Rob didnt approve'
             - required:
               reviewers:
                 - bastovall
-              message: 'Bryce didn't approve'
+              message: 'Bryce didnt approve'
     pass:
       - do: checks
         status: 'success'
