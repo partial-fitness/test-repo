@@ -17,15 +17,3 @@ mergeable:
               reviewers:
                 - bastovall
               message: 'Bryce didnt approve'
-    pass:
-      - do: checks
-        status: 'success'
-        payload:
-          title: 'Mergeable run has been completed!'
-          summary: `{{#each validationSuites}}`
-    fail:
-      - do: checks
-        status: 'failure'
-        payload:
-          title: 'Mergeable run has been completed!'
-          summary: `{{validationSuites}}`
