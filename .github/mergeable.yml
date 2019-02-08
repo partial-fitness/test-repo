@@ -4,51 +4,20 @@ mergeable:
   - when: 'pull_request_review.*'
     validate:
       - do: approvals
-        min: 2
+        min:
+          count: 1
         required:
           reviewers:
-            - adambom
-            - atayarani
-            - bfmonteiro
-            - bhardin
-            - delimatorres
-            - erickmendonca
-            - estherrasche
-            - gabrielmarcondes
-            - gmorada
-            - gregthewhite
-            - jairvercosa
-            - japjit
-            - jerrytalton
-            - lemongod
-            - luismmontielg
-            - lvieirajr
-            - mannysz
-            - Preeti06
-            - rbusquet
-            - revictus
-            - roddds
-            - stephenwangcarta
-            - saechtner
-            - victorlandeira
             - volksport
-            - williamscales
-            - zuzelvp
     pass:
-      - do: checks,
+      - do: checks
         status: 'success'
         payload:
-          title: 'Mergeable run have been completed!'
-          summary: 'All checks have been passed!'
+          title: 'Mergeable run has been completed!'
+          summary: 'All checks have passed!'
     fail:
-      - do: checks,
+      - do: checks
         status: 'failure'
         payload:
           title: 'Mergeable run has been completed!'
           summary: 'You need at least one tech lead to review this PR.'
-    error:
-      - do: checks,
-        status: 'failure'
-        payload:
-          title: 'Mergeable run failed!'
-          summary: 'An unexpected error occurred running mergeable checks.'
